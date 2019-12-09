@@ -15,6 +15,8 @@
       <element id="archive" name="OnTopPlayer.jar">
         <element id="module-output" name="OnTopPlayer" />
       </element>
+      <element id="file-copy" path="$PROJECT_DIR$/start.bat" />
+      <element id="file-copy" path="$PROJECT_DIR$/start.sh" />
     </root>
   </artifact>
 </component>
