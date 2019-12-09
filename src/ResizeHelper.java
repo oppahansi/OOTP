@@ -69,7 +69,10 @@ public class ResizeHelper {
         private double minHeight;
         private double maxHeight;
 
+        Dimension screenSize;
+
         ResizeListener(Stage stage) {
+            screenSize = Toolkit.getDefaultToolkit().getScreenSize();
             this.stage = stage;
         }
 
@@ -161,8 +164,14 @@ public class ResizeHelper {
                         }
                     }
                 } else {
-                    stage.setX(mouseEvent.getScreenX() - sceneWidth / 2);
-                    stage.setY(mouseEvent.getScreenY() - sceneHeight / 2);
+                    double newX = mouseEvent.getScreenX() - sceneWidth / 2;
+                    double newY = mouseEvent.getScreenY() - sceneHeight / 2;
+
+                    if (newX < 0) stage.setX(0);
+                    else stage.setX(Math.min(newX, screenSize.getWidth() - stage.getWidth()));
+
+                    if (newY < 0) stage.setY(0);
+                    else stage.setY(Math.min(newY, screenSize.getHeight() - stage.getHeight()));
                 }
             }
         }

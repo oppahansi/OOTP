@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.web.WebView;
@@ -17,6 +18,7 @@ public class Controller {
     public Button resetButton;
     public Button onTopButton;
     public TextField youtubeId;
+    public Slider opacitySlider;
 
     @FXML
     public void initialize() throws NoSuchFieldException, IllegalAccessException {
@@ -27,6 +29,10 @@ public class Controller {
 
             String baseUrl = "https://www.youtube.com/embed/";
             webView.getEngine().load(baseUrl + youtubeId.getText());
+        });
+
+        opacitySlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            opacitySlider.getScene().getWindow().setOpacity((double)newValue / 100.0);
         });
 
         clearWebView();
@@ -77,6 +83,16 @@ public class Controller {
 
     public void onWebViewExited(MouseEvent mouseEvent) {
         Scene scene = (Scene) ((WebView)mouseEvent.getSource()).getScene();
+        scene.setCursor(Cursor.DEFAULT);
+    }
+
+    public void onSliderEntered(MouseEvent mouseEvent) {
+        Scene scene = (Scene) ((Slider)mouseEvent.getSource()).getScene();
+        scene.setCursor(Cursor.HAND);
+    }
+
+    public void onSliderExited(MouseEvent mouseEvent) {
+        Scene scene = (Scene) ((Slider)mouseEvent.getSource()).getScene();
         scene.setCursor(Cursor.DEFAULT);
     }
 }

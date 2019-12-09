@@ -10,10 +10,9 @@ Doesn't work with YT videos which have embedded playback disabled.
 Execute start.bat on Windows / ./start.sh in Terminal on Mac
 
 ## How To
-Get a YouTube video Link like: https://www.youtube.com/watch?v=hH8QeXYjbF8
-Take its ID(the part after "v="): hH8QeXYjbF8
-
-Paste it into the text field.
+* Download the latest build from releases. [Here](https://github.com/oppahansi/OOTP/releases)
+* Get a YouTube video Link like: https://www.youtube.com/watch?v=hH8QeXYjbF8  Take its ID(the part after "v="): hH8QeXYjbF8
+* Paste it into the text field.
 
 ## Screenshots
 Always on top
@@ -21,3 +20,6 @@ Always on top
 
 Resizeable
 ![Image of Yaktocat](https://i.vgy.me/dXXqlc.png)
+
+Transparency
+![Image of Yaktocat](https://i.vgy.me/TttnYi.png)
